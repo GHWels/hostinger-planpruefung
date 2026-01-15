@@ -1,0 +1,28 @@
+# Aktiviere Rewrite Engine
+RewriteEngine On
+
+# Schütze .env Datei vor direktem Zugriff
+<Files ".env">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Entferne .php Endung aus URLs
+# Wenn die Datei mit .php aufgerufen wird, redirect ohne .php
+RewriteCond %{THE_REQUEST} ^GET.*\.php [NC]
+RewriteRule ^(.*)\.php$ /$1 [R=301,L]
+
+# Füge .php hinzu, wenn die Datei ohne Endung aufgerufen wird
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [L]
+
+# UTF-8 Encoding
+AddDefaultCharset UTF-8
+
+# Verhindere Directory Listing
+Options -Indexes
+
+# Error Pages (optional)
+# ErrorDocument 404 /404.php
+# ErrorDocument 500 /500.php

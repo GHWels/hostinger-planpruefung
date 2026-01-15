@@ -1,0 +1,30 @@
+# Sensible Daten
+.env
+
+# Betriebssystem
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+error_log
+
+# Temporäre Dateien
+*.tmp
+*.bak
+*.cache
+
+# PHP
+vendor/
+composer.lock
+
+# Backup Dateien
+*.backup
+*_backup.*
